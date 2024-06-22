@@ -3,14 +3,14 @@ import time
 import requests
 import webbrowser
 
-version="v1.0.2"
+version="v1.0.3"
 
 os.system('cls')
 print(f"Iniciando PythonAutoShutdown {version} ")
 time.sleep(2)
 
 i=0
-while (i<2):
+while (i<1):
     os.system('cls')
     print("Cargando.")
     time.sleep(1)
@@ -54,8 +54,29 @@ os.system('cls')
 
 
 # Programa principal
-unidad = str(input("Horas o Minutos"))
-horas = float(input(f"En cuantas {unidad} apagar la computadora?"))
+
+unidad = ""
+while unidad != "H" and unidad != "M":
+    unidad = input("Horas o Minutos (H o M): ").upper()
+    os.system("cls")
+    if unidad != "H" and unidad != "M":
+        print("Entrada inválida. Por favor, ingresa 'H' para Horas o 'M' para Minutos.")
+        time.sleep(4)
+        os.system("cls")
+
+if (unidad=="H"):
+    unidad="Horas"
+else:
+    if(unidad=="M"):
+        unidad="Minutos"
+
+if (unidad=="Horas"):    
+    horas = float(input(f"En cuantas horas apagar la computadora?"))
+else:
+    if(unidad=="Minutos"):
+        horas = float(input(f"En cuantos minutos apagar la computadora?"))
+
+
 if (unidad == "Horas"):
     segundos = horas * 3600
 else:
