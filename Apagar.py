@@ -3,7 +3,7 @@ import time
 import requests
 import webbrowser
 
-version="v1.0.1"
+version="v1.0.2"
 
 os.system('cls')
 print(f"Iniciando PythonAutoShutdown {version} ")
@@ -33,8 +33,12 @@ def check_latest_version(repo_owner, repo_name, current_version):
         latest_version = response.json()["tag_name"]
         if latest_version != current_version:
             print(f"¡Hay una nueva versión disponible! Versión actual: {current_version}, Última versión: {latest_version}")
-            webbrowser.open("https://github.com/MaximilianoEgidi/PythonAutoShutdown/releases")
-            exit
+
+            print("Desea descargar la versión mas reciente del programa?")
+            rta = input("S o N ")
+            if (rta == "S"):
+                webbrowser.open("https://github.com/MaximilianoEgidi/PythonAutoShutdown/releases")
+                exit
         else:
             print("Estás utilizando la versión más reciente.")
     else:
@@ -42,7 +46,7 @@ def check_latest_version(repo_owner, repo_name, current_version):
 
 repo_owner = "MaximilianoEgidi"
 repo_name = "PythonAutoShutdown"
-current_version = version  # Tu versión actual aquí
+current_version = version  
 check_latest_version(repo_owner, repo_name, current_version)
 
 time.sleep(3)
