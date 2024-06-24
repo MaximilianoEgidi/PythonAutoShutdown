@@ -2,8 +2,9 @@ import os
 import time
 import requests
 import webbrowser
+import tkinter
 
-version="v1.0.3"
+version="v1.0.4"
 
 os.system('cls')
 print(f"Iniciando PythonAutoShutdown {version} ")
@@ -51,6 +52,11 @@ check_latest_version(repo_owner, repo_name, current_version)
 
 time.sleep(3)
 os.system('cls')
+
+
+
+# Ventana
+
 
 
 # Programa principal
